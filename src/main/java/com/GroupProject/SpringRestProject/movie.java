@@ -1,9 +1,9 @@
 package com.GroupProject.SpringRestProject;
-
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+
 
 @Entity
 public class movie {
@@ -20,13 +20,19 @@ public class movie {
 	private String tagline;
 	private float vote_average;
 	private int vote_count;
+	private String genre;
+	private String actor;
+
+	
+
+	
 
 	public movie() {
     }
 
 	public movie(Integer movie_id, String title, int budget, String homepage, String overview, float popularity,
-			Date release_data, String revenue, int runtime, String movie_status, String tagline, float vote_average,
-			int vote_count) {
+			Date release_date, String revenue, int runtime, String movie_status, String tagline, float vote_average,
+			int vote_count,String genre,String actor) {
 
 		this.movie_id = movie_id;
 		this.title = title;
@@ -34,13 +40,15 @@ public class movie {
 		this.homepage = homepage;
 		this.overview = overview;
 		this.popularity = popularity;
-//		this.release_date = release_date;
+		this.release_date = release_date;
 		this.revenue = revenue;
 		this.runtime = runtime;
 		this.movie_status = movie_status;
 		this.tagline = tagline;
 		this.vote_average = vote_average;
 		this.vote_count = vote_count;
+		this.genre = genre;
+		this.actor=actor;
 	}
 
 	@Id
@@ -92,13 +100,13 @@ public class movie {
 		this.popularity = popularity;
 	}
 
-//	public Date getRelease_date() {
-//		return release_date;
-//	}
-//
-//	public void setRelease_date(Date release_date) {
-//		this.release_date = release_date;
-//	}
+	public Date getRelease_date() {
+		return release_date;
+	}
+
+	public void setRelease_date( Date release_date) {
+		this.release_date = release_date;
+	}
 
 	public String getRevenue() {
 		return revenue;
@@ -147,12 +155,27 @@ public class movie {
 	public void setVote_count(int vote_count) {
 		this.vote_count = vote_count;
 	}
+	
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public String getActor() {
+		return actor;
+	}
+
+	public void setActor(String actor) {
+		this.actor = actor;
+	}
 
 	@Override
 	public String toString() {
 		return "movie [movie_id=" + movie_id + ", title=" + title + ", budget=" + budget + ", homepage=" + homepage
-				+ ", overview=" + overview + ", popularity=" + popularity + ", release_date=" + ", revenue=" + revenue + ", runtime=" + runtime + ", movie_status=" + movie_status + ", tagline="
-				+ tagline + ", vote_average=" + vote_average + ", vote_count=" + vote_count + "]";
+				+ ", overview=" + overview + ", popularity=" + popularity + ", release_date=" +release_date+ ", revenue=" + revenue + ", runtime=" + runtime + ", movie_status=" + movie_status + ", tagline="
+				+ tagline + ", vote_average=" + vote_average + ", vote_count=" + vote_count + ",genre="+genre+",actor="+actor+"]";
 	}
 	
 	
